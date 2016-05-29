@@ -1,0 +1,184 @@
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+div {
+    background-color: #f5f5f5;
+    margin: 0px auto;
+}
+
+.header {
+    height: 80px;
+    background-color: #44dee0;
+    padding-top: 10px;
+    padding-left: 20px;
+}
+
+.header h2 {
+    color: white;
+}
+
+.field {
+    float: left;
+    width: 15%;
+    text-align: left;
+    padding-right: 5px;
+    margin-top: 8px;
+    color: #969696;
+}
+
+input[type = "text"]{
+    color: #888;
+    width: 50%;
+    height: 25px;
+    outline: 0;
+    border: 1px solid #E5E5E5;
+    margin-bottom: 10px;
+    background: #fbfbfb;
+}
+
+legend {
+    font-size: 20px;
+    padding: 12px;
+}
+
+
+input[type = "button"],input[type="submit"] {
+    font-size:15px;
+    font-weight:normal;
+    color: white;
+    padding:6px 24px;
+    text-decoration:none;
+    background:#95b9c7;
+    box-shadow: none;
+    border: none;
+    position: relative;
+}
+
+input[type = "button"]:hover,input[type="submit"]:hover {
+    background-color: #5182bb;
+    text-shadow: -1px 1px #27496d;
+}
+
+input[type = "button"]:active,input[type="submit"]:active {
+    top: 2px;
+
+}
+
+
+.viewbox {
+    width: 100%;
+    min-height: 300px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.left {
+    width: 60%;
+    height:auto;
+}
+
+.right {
+    margin-top: 40px;
+    width: 20%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.right input {
+    margin-top: 10px;
+}
+
+
+footer {
+    font-size: 12px;
+    margin-top: 20px;
+}
+
+.foot p {
+    float: left;
+    margin: 20px 20px;
+}
+
+.foot ul {
+    float: right;
+}
+
+footer ul {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    margin-right: 20px;
+}
+
+footer li {
+    margin-right: 10px;
+}
+
+footer li img {
+    width: 30px;
+    height: 30px;
+}
+
+
+#tableData tr {
+    background: #fbfbfb;
+}
+
+#tableData tr:hover {
+    background-color: #44dee0;
+}
+
+table {
+    width: 100%;
+    text-align: left;
+    vertical-align: middle;
+    padding: 5px;
+    border-collapse: collapse;
+}
+
+th {
+    height: 40px;
+    padding: 5px;
+}
+
+td {
+    height: 25px;
+    padding: 5px;
+   /* border-bottom: 1px solid #ddd;*/
+    border-bottom: 1px solid #ffcd52;
+}
+
+
+thead {
+    background-color: #5182bb;
+    color: #fff;
+    border-bottom-width: 0;
+}
+
+#fieldset1 {
+    margin-left: 15px;
+    margin-right: 15px;
+    padding-left: 3.5em;
+    padding-right: 3.5em;
+}
+
+#fieldset2 {
+    border: none;
+}
+
+legend {
+    padding-left: 0;
+}
+
+.inline {
+    display: inline-block;
+}
+
+
+
+

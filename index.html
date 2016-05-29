@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Addressbook</title>
+    <link rel="stylesheet" type="text/css" href="css.css">
+</head>
+<body>
+<header class="header">
+    <h2>Online Addressbook</h2>
+</header>
+<div class="container">
+    <form id="inputTable">
+        <fieldset id="fieldset1">
+            <legend>Personal Information:</legend>
+            <div>
+                <p>
+                    <label class="field">First Name:</label>
+                    <input type="text" id="firstname" placeholder="Enter your first name" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter your first name'">
+                </p>
+                <p>
+                    <label class="field">Last Name:</label>
+                    <input type="text" id="lastname" placeholder="Enter your last name" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter your last name'">
+                </p>
+                <p>
+                    <label class="field">Telephone:</label>
+                    <input type="text" id="telephone" placeholder="Enter your telephone" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter your telephone'">
+                </p>
+            </div>
+            <div class="inline">
+                <input type="button" value="Discard" id="discard">
+            </div>
+            <div class="inline">
+                <input type="submit" value="Add" id="add">
+            </div>
+        </fieldset>
+    </form>
+</div>
+<div class="viewbox">
+    <div class="left">
+        <fieldset id="fieldset2">
+            <legend>Contact List:</legend>
+                <table id="outputTable">
+                    <thead>
+                        <tr>
+                            <th>FirstName</th>
+                            <th>LastName</th>
+                            <th>Telephone</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tableData"></tbody>
+                </table>
+        </fieldset>
+    </div>
+    <div class="right">
+        <input type="button" id="listView" value="Check contact list">
+        <input type="button" id="sortTel" value="Sort by telephone">
+        <input type="button" id="sortFirstName" value="Sort by first name">
+        <input type="button" id="sortLastName" value="Sort by last name">
+        <input type="button" id="del" value="Delete">
+    </div>
+</div>
+<footer>
+    <div class="foot">
+        <p>&copy; devlevelup 2016</p>
+        <ul>
+            <li><img src="img/twitter_grey.svg"></li>
+            <li><img src="img/instagram_grey.svg"></li>
+            <li><img src="img/facebook_grey.svg"></li>
+            <li><img src="img/medium_grey.svg"></li>
+        </ul>
+    </div>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>
