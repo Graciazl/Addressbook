@@ -9,14 +9,17 @@ div {
 }
 
 .header {
-    height: 80px;
+    height: 100px;
     background-color: #44dee0;
     padding-top: 10px;
     padding-left: 20px;
+    text-align: left;
 }
 
-.header h2 {
+.header h1 {
     color: white;
+    font-family: 'Lato',serif;
+    padding-left: 50px;
 }
 
 .field {
@@ -24,8 +27,17 @@ div {
     width: 15%;
     text-align: left;
     padding-right: 5px;
-    margin-top: 8px;
+    margin-top: 5px;
     color: #969696;
+    font-size:15px;
+    font-family: 'Lato',serif;
+}
+
+legend {
+    font-size: 20px;
+    font-family: 'Lato',serif;
+    color: #585858;
+    padding: 12px;
 }
 
 input[type = "text"]{
@@ -36,17 +48,13 @@ input[type = "text"]{
     border: 1px solid #E5E5E5;
     margin-bottom: 10px;
     background: #fbfbfb;
+    font-size:15px;
+    font-family: 'Lato',serif;
 }
-
-legend {
-    font-size: 20px;
-    padding: 12px;
-}
-
 
 input[type = "button"],input[type="submit"] {
     font-size:15px;
-    font-weight:normal;
+    font-family: 'Lato',serif;
     color: white;
     padding:6px 24px;
     text-decoration:none;
@@ -63,9 +71,20 @@ input[type = "button"]:hover,input[type="submit"]:hover {
 
 input[type = "button"]:active,input[type="submit"]:active {
     top: 2px;
-
 }
 
+.submit {
+    display: flex;
+    flex-direction: row;
+    margin-left: 0;
+    justify-content: flex-start;
+}
+
+#discard,#add {
+    width: 100px;
+    text-align: center;
+    margin-right: 20px;
+}
 
 .viewbox {
     width: 100%;
@@ -80,8 +99,12 @@ input[type = "button"]:active,input[type="submit"]:active {
     height:auto;
 }
 
+#fieldset2 {
+    margin-top: 20px;
+}
+
 .right {
-    margin-top: 40px;
+    margin-top: 64px;
     width: 20%;
     height: auto;
     display: flex;
@@ -139,6 +162,8 @@ table {
     vertical-align: middle;
     padding: 5px;
     border-collapse: collapse;
+    font-size:15px;
+    font-family: 'Lato',serif;
 }
 
 th {
@@ -149,8 +174,8 @@ th {
 td {
     height: 25px;
     padding: 5px;
-   /* border-bottom: 1px solid #ddd;*/
     border-bottom: 1px solid #ffcd52;
+    color: #585858;
 }
 
 
@@ -171,13 +196,6 @@ thead {
     border: none;
 }
 
-legend {
-    padding-left: 0;
-}
-
-.inline {
-    display: inline-block;
-}
 
 
 

@@ -4,10 +4,11 @@
     <meta charset="UTF-8">
     <title>Addressbook</title>
     <link rel="stylesheet" type="text/css" href="css.css">
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Lato">
 </head>
 <body>
 <header class="header">
-    <h2>Online Addressbook</h2>
+    <h1>Online Addressbook</h1>
 </header>
 <div class="container">
     <form id="inputTable">
@@ -26,13 +27,12 @@
                     <label class="field">Telephone:</label>
                     <input type="text" id="telephone" placeholder="Enter your telephone" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter your telephone'">
                 </p>
+                <div class="submit">
+                    <input type="button" value="Discard" id="discard">
+                    <input type="submit" value="Add" id="add">
+                </div>
             </div>
-            <div class="inline">
-                <input type="button" value="Discard" id="discard">
-            </div>
-            <div class="inline">
-                <input type="submit" value="Add" id="add">
-            </div>
+
         </fieldset>
     </form>
 </div>
