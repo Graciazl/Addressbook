@@ -48,11 +48,11 @@ var list = JSON.parse(localStorage.getItem('info'));
 function dynamicSort(property, asc) {
     if (asc) {
         return function (a, b) {
-            return (a[property] > b[property]) ? 1 : (a[property] < b[property]) ? -1 : 0;
+            return (a[property].toUpperCase() > b[property].toUpperCase()) ? 1 : (a[property].toUpperCase() < b[property].toUpperCase()) ? -1 : 0;
         }
     }
     return function (a, b) {
-        return (a[property] < b[property]) ? 1 : (a[property] > b[property]) ? -1 : 0;
+        return (a[property].toUpperCase() < b[property].toUpperCase()) ? 1 : (a[property].toUpperCase() > b[property].toUpperCase()) ? -1 : 0;
     }
 }
 
