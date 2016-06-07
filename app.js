@@ -45,30 +45,25 @@ addEvent(list,'click',creatTable);
 
 var list = JSON.parse(localStorage.getItem('info'));
 
-function sortFirstName() {
-    list.sort(function(a,b) {
-        if (a.firstname > b.firstname) {
-            return 1;
-        } else if (a.firstname < b.firstname) {
-            return -1;
-        } else {
-            return 0;
+function dynamicSort(property, asc) {
+    if (asc) {
+        return function (a, b) {
+            return (a[property] > b[property]) ? 1 : (a[property] < b[property]) ? -1 : 0;
         }
-    });
+    }
+    return function (a, b) {
+        return (a[property] < b[property]) ? 1 : (a[property] > b[property]) ? -1 : 0;
+    }
+}
+
+function sortFirstAsc() {
+    list.sort(dynamicSort('firstname',true));
     localStorage.setItem('info',JSON.stringify(list));
     creatTable();
 }
 
-function sortLastName() {
-    list.sort(function(a,b) {
-        if (a.lastname > b.lastname) {
-            return 1;
-        } else if (a.lastname < b.lastname) {
-            return -1;
-        } else {
-            return 0;
-        }
-    });
+function sortLastAsc() {
+    list.sort(dynamicSort('lastname',true));
     localStorage.setItem('info',JSON.stringify(list));
     creatTable();
 }
@@ -82,9 +77,9 @@ function sortNumber() {
 }
 
 var sf = document.getElementById('sortFirstName');
-addEvent(sf,'click',sortFirstName);
+addEvent(sf,'click',sortFirstAsc);
 var sl = document.getElementById('sortLastName');
-addEvent(sl,'click',sortLastName);
+addEvent(sl,'click',sortLastAsc);
 var st = document.getElementById('sortTel');
 addEvent(st,'click',sortNumber);
 
