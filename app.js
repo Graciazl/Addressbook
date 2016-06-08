@@ -47,27 +47,27 @@ var list = JSON.parse(localStorage.getItem('info'));
 
 function dynamicSort(property, asc) {
     if (asc) {
-        return function (a, b) {
+        return function(a, b) {
             var A = a[property].toUpperCase();
             var B = b[property].toUpperCase();
             return (A > B) ? 1 : (A < B) ? -1 : 0;
         }
     }
-    return function (a, b) {
+    return function(a, b) {
         var A = a[property].toUpperCase();
         var B = b[property].toUpperCase();
         return (A < B) ? 1 : (A > B) ? -1 : 0;
     }
 }
 
-function sortNum(property, asc){
-    if(asc){
-        return function(a,b){
-            return a[property]>b[property]?1:-1;
+function sortNum(property, asc) {
+    if(asc) {
+        return function(a,b) {
+            return a[property] > b[property] ? 1 : -1;
         }
     }
-    return function(a,b){
-        return a[property]<b[property]?1:-1;
+    return function(a,b) {
+        return a[property] < b[property] ? 1 : -1;
     }
 }
 
