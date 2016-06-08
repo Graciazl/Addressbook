@@ -10,16 +10,31 @@ div {
 
 .header {
     height: 100px;
+    width: 100%;
     background-color: #44dee0;
     padding-top: 10px;
     padding-left: 20px;
     text-align: left;
+    position: fixed;
+    top: 0;
 }
 
 .header h1 {
     color: white;
     font-family: 'Lato',serif;
     padding-left: 50px;
+}
+
+.container {
+    margin-top: 100px;
+    padding-top: 20px;
+}
+
+#fieldset1 {
+    margin-left: 15px;
+    margin-right: 15px;
+    padding-left: 3.5em;
+    padding-right: 3.5em;
 }
 
 .field {
@@ -101,6 +116,7 @@ input[type = "button"]:active,input[type="submit"]:active {
 
 #fieldset2 {
     margin-top: 20px;
+    border: none;
 }
 
 .right {
@@ -185,16 +201,8 @@ thead {
     border-bottom-width: 0;
 }
 
-#fieldset1 {
-    margin-left: 15px;
-    margin-right: 15px;
-    padding-left: 3.5em;
-    padding-right: 3.5em;
-}
 
-#fieldset2 {
-    border: none;
-}
+
 
 
 
