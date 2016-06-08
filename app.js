@@ -77,14 +77,32 @@ function sortFirstAsc() {
     creatTable();
 }
 
+function sortFirstDes() {
+    list.sort(dynamicSort('firstname',false));
+    localStorage.setItem('info',JSON.stringify(list));
+    creatTable();
+}
+
 function sortLastAsc() {
     list.sort(dynamicSort('lastname',true));
     localStorage.setItem('info',JSON.stringify(list));
     creatTable();
 }
 
+function sortLastDes() {
+    list.sort(dynamicSort('lastname',false));
+    localStorage.setItem('info',JSON.stringify(list));
+    creatTable();
+}
+
 function sortNumAsc(){
     list.sort(sortNum('telephone',true));
+    localStorage.setItem('info',JSON.stringify(list));
+    creatTable();
+}
+
+function sortNumDes(){
+    list.sort(sortNum('telephone',false));
     localStorage.setItem('info',JSON.stringify(list));
     creatTable();
 }
