@@ -60,6 +60,17 @@ function dynamicSort(property, asc) {
     }
 }
 
+function sortNum(property, asc){
+    if(asc){
+        return function(a,b){
+            return a[property]>b[property]?1:-1;
+        }
+    }
+    return function(a,b){
+        return a[property]<b[property]?1:-1;
+    }
+}
+
 function sortFirstAsc() {
     list.sort(dynamicSort('firstname',true));
     localStorage.setItem('info',JSON.stringify(list));
@@ -72,10 +83,8 @@ function sortLastAsc() {
     creatTable();
 }
 
-function sortNumber() {
-    list.sort(function(a,b){
-        return a.telephone - b.telephone;
-    });
+function sortNumAsc(){
+    list.sort(sortNum('telephone',true));
     localStorage.setItem('info',JSON.stringify(list));
     creatTable();
 }
@@ -85,7 +94,7 @@ addEvent(sf,'click',sortFirstAsc);
 var sl = document.getElementById('sortLastName');
 addEvent(sl,'click',sortLastAsc);
 var st = document.getElementById('sortTel');
-addEvent(st,'click',sortNumber);
+addEvent(st,'click',sortNumAsc);
 
 
 //creat table
