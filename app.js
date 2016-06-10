@@ -81,6 +81,8 @@ addEvent(st,'click',sortTel);
 function sortFN() {
     var lc = sf.lastChild;
     var x = lc.classList.contains('sort') || lc.classList.contains('desc');
+    sl.lastChild.className = 'sort';
+    st.lastChild.className = 'sort';
     if (x) {
         list.sort(dynamicSort('firstname',true));
         localStorage.setItem('info',JSON.stringify(list));
@@ -97,6 +99,8 @@ function sortFN() {
 function sortLN() {
     var lc = sl.lastChild;
     var x = lc.classList.contains('sort') || lc.classList.contains('desc');
+    sf.lastChild.className = 'sort';
+    st.lastChild.className = 'sort';
     if (x) {
         list.sort(dynamicSort('lastname',true));
         localStorage.setItem('info',JSON.stringify(list));
@@ -113,6 +117,8 @@ function sortLN() {
 function sortTel() {
     var lc = st.lastChild;
     var x = lc.classList.contains('sort') || lc.classList.contains('desc');
+    sl.lastChild.className = 'sort';
+    sf.lastChild.className = 'sort';
     if (x) {
         list.sort(sortNum('telephone',true));
         localStorage.setItem('info',JSON.stringify(list));
