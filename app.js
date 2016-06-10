@@ -71,48 +71,60 @@ function sortNum(property, asc) {
     }
 }
 
-function sortFirstAsc() {
-    list.sort(dynamicSort('firstname',true));
-    localStorage.setItem('info',JSON.stringify(list));
-    creatTable();
+var sf = document.getElementById('theadFN');
+var sl = document.getElementById('theadLN');
+var st = document.getElementById('theadTel');
+addEvent(sf,'click',sortFN);
+addEvent(sl,'click',sortLN);
+addEvent(st,'click',sortTel);
+
+function sortFN() {
+    var lc = sf.lastChild;
+    var x = lc.classList.contains('sort') || lc.classList.contains('desc');
+    if (x) {
+        list.sort(dynamicSort('firstname',true));
+        localStorage.setItem('info',JSON.stringify(list));
+        creatTable();
+        lc.className = 'asc';
+    } else {
+        list.sort(dynamicSort('firstname',false));
+        localStorage.setItem('info',JSON.stringify(list));
+        creatTable();
+        lc.className = 'desc';
+    }
 }
 
-function sortFirstDes() {
-    list.sort(dynamicSort('firstname',false));
-    localStorage.setItem('info',JSON.stringify(list));
-    creatTable();
+function sortLN() {
+    var lc = sl.lastChild;
+    var x = lc.classList.contains('sort') || lc.classList.contains('desc');
+    if (x) {
+        list.sort(dynamicSort('lastname',true));
+        localStorage.setItem('info',JSON.stringify(list));
+        creatTable();
+        lc.className = 'asc';
+    } else {
+        list.sort(dynamicSort('lastname',false));
+        localStorage.setItem('info',JSON.stringify(list));
+        creatTable();
+        lc.className = 'desc';
+    }
 }
 
-function sortLastAsc() {
-    list.sort(dynamicSort('lastname',true));
-    localStorage.setItem('info',JSON.stringify(list));
-    creatTable();
+function sortTel() {
+    var lc = st.lastChild;
+    var x = lc.classList.contains('sort') || lc.classList.contains('desc');
+    if (x) {
+        list.sort(sortNum('telephone',true));
+        localStorage.setItem('info',JSON.stringify(list));
+        creatTable();
+        lc.className = 'asc';
+    } else {
+        list.sort(sortNum('telephone',false));
+        localStorage.setItem('info',JSON.stringify(list));
+        creatTable();
+        lc.className = 'desc';
+    }
 }
-
-function sortLastDes() {
-    list.sort(dynamicSort('lastname',false));
-    localStorage.setItem('info',JSON.stringify(list));
-    creatTable();
-}
-
-function sortNumAsc(){
-    list.sort(sortNum('telephone',true));
-    localStorage.setItem('info',JSON.stringify(list));
-    creatTable();
-}
-
-function sortNumDes(){
-    list.sort(sortNum('telephone',false));
-    localStorage.setItem('info',JSON.stringify(list));
-    creatTable();
-}
-
-var sf = document.getElementById('sortFirstName');
-addEvent(sf,'click',sortFirstAsc);
-var sl = document.getElementById('sortLastName');
-addEvent(sl,'click',sortLastAsc);
-var st = document.getElementById('sortTel');
-addEvent(st,'click',sortNumAsc);
 
 
 //creat table
