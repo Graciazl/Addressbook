@@ -220,9 +220,9 @@ var ln = document.getElementById('lastname');
 function fnameVali() {
     var p1 = document.getElementById('alertP1');
     if (fn.validity.valueMissing){
-        p1.innerHTML = '<i class = "err"></i> Your name should not be empty! ';
+        p1.innerHTML = '<i class = "err"></i> Your first name should not be empty! ';
     } else if (fn.validity.patternMismatch) {
-        p1.innerHTML = '<i class = "err"></i> Your name should be characters from a to z! ';
+        p1.innerHTML = '<i class = "err"></i> Your frist name should be characters from a to z! ';
     } else {
         p1.innerHTML = '';
     }
@@ -231,9 +231,9 @@ function fnameVali() {
 function lnameVali() {
     var p2 = document.getElementById('alertP2');
     if (fn.validity.valueMissing){
-        p2.innerHTML = '<i class = "err"></i> Your name should not be empty! ';
+        p2.innerHTML = '<i class = "err"></i> Your last name should not be empty! ';
     } else if (fn.validity.patternMismatch) {
-        p2.innerHTML = '<i class = "err"></i> Your name should be characters from a to z! ';
+        p2.innerHTML = '<i class = "err"></i> Your last name should be characters from a to z! ';
     } else {
         p2.innerHTML = '';
     }

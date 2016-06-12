@@ -43,7 +43,7 @@ div {
     width: 15%;
     text-align: left;
     padding-right: 5px;
-    margin-top: 5px;
+    margin-top: 18px;
     color: #969696;
     font-size:15px;
     font-family: 'Lato',serif;
@@ -63,7 +63,7 @@ input[type = "text"],input[type = "tel"]{
     height: 25px;
     outline: 0;
     border: 1px solid #E5E5E5;
-    margin-bottom: 10px;
+    margin: 15px 0 15px;
     background: #fbfbfb;
     font-size:15px;
     font-family: 'Lato',serif;
@@ -95,6 +95,7 @@ input[type = "button"]:active,input[type="submit"]:active {
     display: flex;
     flex-direction: row;
     margin: 20px 0 20px;
+    width: 50%;
     position: relative;
     left: 15%;
     justify-content: flex-start;
@@ -258,3 +259,24 @@ thead {
     right:-50px;
 }
 
+#alertP1,#alertP2 {
+    position: relative;
+    left: 15%;
+    font-size:15px;
+    font-family: 'Lato',serif;
+    color: #c0c0c0;
+    width: 50%;
+    margin: 2px 0 2px;
+}
+
+/*
+input:valid {
+    background:#95b9c7;
+    border: none;
+}
+*/
+
+/*
+input:invalid {
+    border: 5px solid #ddffdd;
+}*/
