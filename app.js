@@ -210,3 +210,35 @@ function addEvent(element, evt, callback) {
         element["on" + evt] = callback;
     }
 }
+
+
+//form validation
+
+var fn = document.getElementById('firstname');
+var ln = document.getElementById('lastname');
+
+function fnameVali() {
+    var p1 = document.getElementById('alertP1');
+    if (fn.validity.valueMissing){
+        p1.innerHTML = '<i class = "err"></i> Your name should not be empty! ';
+    } else if (fn.validity.patternMismatch) {
+        p1.innerHTML = '<i class = "err"></i> Your name should be characters from a to z! ';
+    } else {
+        p1.innerHTML = '';
+    }
+}
+
+function lnameVali() {
+    var p2 = document.getElementById('alertP2');
+    if (fn.validity.valueMissing){
+        p2.innerHTML = '<i class = "err"></i> Your name should not be empty! ';
+    } else if (fn.validity.patternMismatch) {
+        p2.innerHTML = '<i class = "err"></i> Your name should be characters from a to z! ';
+    } else {
+        p2.innerHTML = '';
+    }
+}
+
+addEvent(fn,'blur',fnameVali);
+addEvent(ln,'blur',lnameVali);
+

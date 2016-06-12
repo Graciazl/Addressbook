@@ -55,7 +55,7 @@ legend {
     padding: 12px;
 }
 
-input[type = "text"]{
+input[type = "text"],input[type = "tel"]{
     color: #888;
     width: 50%;
     height: 25px;
