@@ -7,6 +7,16 @@ var $ = function(id) {
     return document.getElementById(id.substr(1));
 };
 
+function LocalStorageStore() { }
+
+LocalStorageStore.prototype.load = function() {
+    return localStorage.getItem('info');
+};
+
+LocalStorageStore.prototype.save = function(data) {
+    return localStorage.setItem('info',data);
+};
+
 //add contact
 
 var contact = [];
