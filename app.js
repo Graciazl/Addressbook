@@ -45,96 +45,7 @@ var lists = document.getElementById('listView');
 addEvent(lists,'click',creatTable);
 
 
-//sort
-
 var list = JSON.parse(localStorage.getItem('info'));
-
-function dynamicSort(property, asc) {
-    if (asc) {
-        return function(a, b) {
-            var A = a[property].toUpperCase();
-            var B = b[property].toUpperCase();
-            return (A > B) ? 1 : (A < B) ? -1 : 0;
-        }
-    }
-    return function(a, b) {
-        var A = a[property].toUpperCase();
-        var B = b[property].toUpperCase();
-        return (A < B) ? 1 : (A > B) ? -1 : 0;
-    }
-}
-
-function sortNum(property, asc) {
-    if(asc) {
-        return function(a,b) {
-            return a[property] > b[property] ? 1 : -1;
-        }
-    }
-    return function(a,b) {
-        return a[property] < b[property] ? 1 : -1;
-    }
-}
-
-var sf = document.getElementById('theadFN');
-var sl = document.getElementById('theadLN');
-var st = document.getElementById('theadTel');
-addEvent(sf,'click',sortFN);
-addEvent(sl,'click',sortLN);
-addEvent(st,'click',sortTel);
-
-function sortFN() {
-    var lc = sf.lastChild;
-    var x = lc.classList.contains('sort') || lc.classList.contains('desc');
-    sl.lastChild.className = 'sort';
-    st.lastChild.className = 'sort';
-    if (x) {
-        list.sort(dynamicSort('firstname',true));
-        localStorage.setItem('info',JSON.stringify(list));
-        creatTable();
-        lc.className = 'asc';
-    } else {
-        list.sort(dynamicSort('firstname',false));
-        localStorage.setItem('info',JSON.stringify(list));
-        creatTable();
-        lc.className = 'desc';
-    }
-}
-
-function sortLN() {
-    var lc = sl.lastChild;
-    var x = lc.classList.contains('sort') || lc.classList.contains('desc');
-    sf.lastChild.className = 'sort';
-    st.lastChild.className = 'sort';
-    if (x) {
-        list.sort(dynamicSort('lastname',true));
-        localStorage.setItem('info',JSON.stringify(list));
-        creatTable();
-        lc.className = 'asc';
-    } else {
-        list.sort(dynamicSort('lastname',false));
-        localStorage.setItem('info',JSON.stringify(list));
-        creatTable();
-        lc.className = 'desc';
-    }
-}
-
-function sortTel() {
-    var lc = st.lastChild;
-    var x = lc.classList.contains('sort') || lc.classList.contains('desc');
-    sl.lastChild.className = 'sort';
-    sf.lastChild.className = 'sort';
-    if (x) {
-        list.sort(sortNum('telephone',true));
-        localStorage.setItem('info',JSON.stringify(list));
-        creatTable();
-        lc.className = 'asc';
-    } else {
-        list.sort(sortNum('telephone',false));
-        localStorage.setItem('info',JSON.stringify(list));
-        creatTable();
-        lc.className = 'desc';
-    }
-}
 
 
 //creat table
@@ -246,3 +157,98 @@ function lnameVali() {
 addEvent(fn,'blur',fnameVali);
 addEvent(ln,'blur',lnameVali);
 
+
+// model
+var addressBook = (function(){
+
+    return {
+        dynamicSort: function(property, asc) {
+            if (asc) {
+                return function (a, b) {
+                    var A = a[property].toUpperCase();
+                    var B = b[property].toUpperCase();
+                    return (A > B) ? 1 : (A < B) ? -1 : 0;
+                }
+            }
+            return function (a, b) {
+                var A = a[property].toUpperCase();
+                var B = b[property].toUpperCase();
+                return (A < B) ? 1 : (A > B) ? -1 : 0;
+            }
+        },
+
+        sortNum: function (property, asc) {
+            if (asc) {
+                return function (a, b) {
+                    return a[property] > b[property] ? 1 : -1;
+                }
+            }
+            return function (a, b) {
+                return a[property] < b[property] ? 1 : -1;
+            }
+        }
+
+
+    };
+
+}());
+
+
+
+// controller
+(function(){
+
+    $('#theadFN').addEventListener('click',function(){
+        var lc = $('#theadFN').lastChild;
+        var x = lc.classList.contains('sort') || lc.classList.contains('desc');
+        $('#theadLN').lastChild.className = 'sort';
+        $('#theadTel').lastChild.className = 'sort';
+        if (x) {
+            list.sort(addressBook.dynamicSort('firstname',true));
+            localStorage.setItem('info',JSON.stringify(list));
+            creatTable();
+            lc.className = 'asc';
+        } else {
+            list.sort(addressBook.dynamicSort('firstname',false));
+            localStorage.setItem('info',JSON.stringify(list));
+            creatTable();
+            lc.className = 'desc';
+        }
+    });
+
+    $('#theadLN').addEventListener('click',function(){
+        var lc = $('#theadLN').lastChild;
+        var x = lc.classList.contains('sort') || lc.classList.contains('desc');
+        $('#theadFN').lastChild.className = 'sort';
+        $('#theadTel').lastChild.className = 'sort';
+        if (x) {
+            list.sort(addressBook.dynamicSort('lastname',true));
+            localStorage.setItem('info',JSON.stringify(list));
+            creatTable();
+            lc.className = 'asc';
+        } else {
+            list.sort(addressBook.dynamicSort('lastname',false));
+            localStorage.setItem('info',JSON.stringify(list));
+            creatTable();
+            lc.className = 'desc';
+        }
+    });
+
+    $('#theadTel').addEventListener('click',function(){
+        var lc = $('#theadTel').lastChild;
+        var x = lc.classList.contains('sort') || lc.classList.contains('desc');
+        $('#theadLN').lastChild.className = 'sort';
+        $('#theadFN').lastChild.className = 'sort';
+        if (x) {
+            list.sort(addressBook.sortNum('telephone',true));
+            localStorage.setItem('info',JSON.stringify(list));
+            creatTable();
+            lc.className = 'asc';
+        } else {
+            list.sort(addressBook.sortNum('telephone',false));
+            localStorage.setItem('info',JSON.stringify(list));
+            creatTable();
+            lc.className = 'desc';
+        }
+    });
+}());
