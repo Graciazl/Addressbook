@@ -41,8 +41,8 @@ addEvent(dis,'click',discardContact);
 
 
 //check list
-var list = document.getElementById('listView');
-addEvent(list,'click',creatTable);
+var lists = document.getElementById('listView');
+addEvent(lists,'click',creatTable);
 
 
 //sort
