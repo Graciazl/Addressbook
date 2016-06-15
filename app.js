@@ -2,6 +2,10 @@
  * Created by Gracia on 16/4/18.
  */
 
+// common lib
+var $ = function(id) {
+    return document.getElementById(id.substr(1));
+};
 
 //add contact
 
