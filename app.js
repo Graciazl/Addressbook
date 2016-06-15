@@ -17,30 +17,6 @@ LocalStorageStore.prototype.save = function(data) {
     return localStorage.setItem('info',data);
 };
 
-//add contact
-
-var contact = [];
-
-function newContact() {
-    var newContact = {};
-    newContact.firstname = document.getElementById('firstname').value;
-    newContact.lastname = document.getElementById('lastname').value;
-    newContact.telephone = document.getElementById('telephone').value;
-    return newContact;
-}
-
-function addContact() {
-    if (localStorage.getItem('info') !== null ) {
-        contact = JSON.parse(localStorage.getItem('info'));
-    }
-    contact.push(newContact());
-    localStorage.setItem('info',JSON.stringify(contact));
-    alert('Your information has been added.');
-}
-
-var id = document.getElementById('add');
-addEvent(id,'click',addContact);
-
 
 //discard input
 var dis = document.getElementById('discard');
@@ -170,8 +146,22 @@ addEvent(ln,'blur',lnameVali);
 
 // model
 var addressBook = (function(){
+    var storage = new LocalStorageStore(),
+        contacts = [];
 
     return {
+        load: function() {
+            contacts = JSON.parse(storage.load());
+            return contacts;
+        },
+
+        save: function() {
+            return storage.save(JSON.stringify(contacts));
+        },
+
+        add: function(contact) {
+            contacts.push(contact);
+        },
         dynamicSort: function(property, asc) {
             if (asc) {
                 return function (a, b) {
@@ -207,6 +197,17 @@ var addressBook = (function(){
 
 // controller
 (function(){
+    $('#add').addEventListener('click', function() {
+        var contact = {
+            firstName: $('#firstname').value,
+            lastName: $('#lastname').value,
+            telephone: $('#telephone').value
+        };
+        addressBook.load();
+        addressBook.add(contact);
+        addressBook.save();
+        alert('Your information has been added.');
+    });
 
     $('#theadFN').addEventListener('click',function(){
         var lc = $('#theadFN').lastChild;
