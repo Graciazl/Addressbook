@@ -74,36 +74,6 @@ function addEvent(element, evt, callback) {
 }
 
 
-//form validation
-
-var fn = document.getElementById('firstname');
-var ln = document.getElementById('lastname');
-
-function fnameVali() {
-    var p1 = document.getElementById('alertP1');
-    if (fn.validity.valueMissing){
-        p1.innerHTML = '<i class = "err"></i> Your first name should not be empty! ';
-    } else if (fn.validity.patternMismatch) {
-        p1.innerHTML = '<i class = "err"></i> Your frist name should be characters from a to z! ';
-    } else {
-        p1.innerHTML = '';
-    }
-}
-
-function lnameVali() {
-    var p2 = document.getElementById('alertP2');
-    if (fn.validity.valueMissing){
-        p2.innerHTML = '<i class = "err"></i> Your last name should not be empty! ';
-    } else if (fn.validity.patternMismatch) {
-        p2.innerHTML = '<i class = "err"></i> Your last name should be characters from a to z! ';
-    } else {
-        p2.innerHTML = '';
-    }
-}
-
-addEvent(fn,'blur',fnameVali);
-addEvent(ln,'blur',lnameVali);
-
 
 // model
 var addressBook = (function(){
@@ -246,6 +216,30 @@ var addressBook = (function(){
             addressBook.save();
             creatTable();
             lc.className = 'desc';
+        }
+    });
+
+    $('#firstname').addEventListener('blur', function() {
+        var p1 = $('#alertP1');
+        var fn = $('#firstname');
+        if (fn.validity.valueMissing){
+            p1.innerHTML = '<i class = "err"></i> Your first name should not be empty! ';
+        } else if (fn.validity.patternMismatch) {
+            p1.innerHTML = '<i class = "err"></i> Your frist name should be characters from a to z! ';
+        } else {
+            p1.innerHTML = '';
+        }
+    });
+
+    $('#lastname').addEventListener('blur', function() {
+        var p2 = $('#alertP2');
+        var ln = $('#lastname');
+        if (ln.validity.valueMissing){
+            p2.innerHTML = '<i class = "err"></i> Your last name should not be empty! ';
+        } else if (ln.validity.patternMismatch) {
+            p2.innerHTML = '<i class = "err"></i> Your last name should be characters from a to z! ';
+        } else {
+            p2.innerHTML = '';
         }
     });
 
