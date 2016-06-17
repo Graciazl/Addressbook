@@ -26,11 +26,6 @@ function discardContact() {
 addEvent(dis,'click',discardContact);
 
 
-//check list
-var lists = document.getElementById('listView');
-addEvent(lists,'click',creatTable);
-
-
 var list = JSON.parse(localStorage.getItem('info'));
 
 
@@ -262,4 +257,9 @@ var addressBook = (function(){
             lc.className = 'desc';
         }
     });
+
+    $('#listView').addEventListener('click', function() {
+        return creatTable();
+    });
+
 }());
