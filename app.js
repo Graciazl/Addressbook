@@ -18,13 +18,6 @@ LocalStorageStore.prototype.save = function(data) {
 };
 
 
-//discard input
-var dis = document.getElementById('discard');
-function discardContact() {
-    document.getElementById('inputTable').reset();
-}
-addEvent(dis,'click',discardContact);
-
 
 var list = JSON.parse(localStorage.getItem('info'));
 
@@ -258,6 +251,10 @@ var addressBook = (function(){
 
     $('#listView').addEventListener('click', function() {
         return creatTable();
+    });
+
+    $('#discard').addEventListener('click', function() {
+        $('#inputTable').reset();
     });
 
 }());
