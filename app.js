@@ -29,33 +29,6 @@ addEvent(dis,'click',discardContact);
 var list = JSON.parse(localStorage.getItem('info'));
 
 
-//creat table
-
-function creatTable() {
-    var myTB = document.getElementById('tableData');
-    function newTable() {
-        var dataTB = JSON.parse(localStorage.getItem('info'));
-        for (var i = 0; i < dataTB.length; i++) {
-            var newRow = document.createElement('tr');
-            var obj = dataTB[i];
-            for (var x in obj) {
-                var newCell = document.createElement('td');
-                var newText = document.createTextNode(obj[x]);
-                newCell.appendChild(newText);
-                newRow.appendChild(newCell);
-            }
-            document.getElementById('tableData').appendChild(newRow);
-        }
-        highLight();
-    }
-    if (myTB.rows.length === 0) {
-        return newTable();
-    } else {
-        myTB.innerHTML = '';
-        return newTable();
-     }
-}
-
 //highlight rows
 
 var rowIdx;
@@ -192,6 +165,31 @@ var addressBook = (function(){
 
 // controller
 (function(){
+    function creatTable() {
+        var myTB = $('#tableData');
+        function newTable() {
+            var dataTB = addressBook.load();
+            for (var i = 0; i < dataTB.length; i++) {
+                var newRow = document.createElement('tr');
+                var obj = dataTB[i];
+                for (var x in obj) {
+                    var newCell = document.createElement('td');
+                    var newText = document.createTextNode(obj[x]);
+                    newCell.appendChild(newText);
+                    newRow.appendChild(newCell);
+                }
+                $('#tableData').appendChild(newRow);
+            }
+            highLight();
+        }
+        if (myTB.rows.length === 0) {
+            return newTable();
+        } else {
+            myTB.innerHTML = '';
+            return newTable();
+        }
+    }
+
     $('#add').addEventListener('click', function() {
         var contact = {
             firstName: $('#firstname').value,
