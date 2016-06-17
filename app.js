@@ -215,13 +215,13 @@ var addressBook = (function(){
         $('#theadLN').lastChild.className = 'sort';
         $('#theadTel').lastChild.className = 'sort';
         if (x) {
-            list.sort(addressBook.dynamicSort('firstname',true));
-            localStorage.setItem('info',JSON.stringify(list));
+            addressBook.load().sort(addressBook.dynamicSort('firstname',true));
+            addressBook.save();
             creatTable();
             lc.className = 'asc';
         } else {
-            list.sort(addressBook.dynamicSort('firstname',false));
-            localStorage.setItem('info',JSON.stringify(list));
+            addressBook.load().sort(addressBook.dynamicSort('firstname',false));
+            addressBook.save();
             creatTable();
             lc.className = 'desc';
         }
@@ -233,13 +233,13 @@ var addressBook = (function(){
         $('#theadFN').lastChild.className = 'sort';
         $('#theadTel').lastChild.className = 'sort';
         if (x) {
-            list.sort(addressBook.dynamicSort('lastname',true));
-            localStorage.setItem('info',JSON.stringify(list));
+            addressBook.load().sort(addressBook.dynamicSort('lastname',true));
+            addressBook.save();
             creatTable();
             lc.className = 'asc';
         } else {
-            list.sort(addressBook.dynamicSort('lastname',false));
-            localStorage.setItem('info',JSON.stringify(list));
+            addressBook.load().sort(addressBook.dynamicSort('lastname',false));
+            addressBook.save();
             creatTable();
             lc.className = 'desc';
         }
@@ -251,13 +251,13 @@ var addressBook = (function(){
         $('#theadLN').lastChild.className = 'sort';
         $('#theadFN').lastChild.className = 'sort';
         if (x) {
-            list.sort(addressBook.sortNum('telephone',true));
-            localStorage.setItem('info',JSON.stringify(list));
+            addressBook.load().sort(addressBook.sortNum('telephone',true));
+            addressBook.save();
             creatTable();
             lc.className = 'asc';
         } else {
-            list.sort(addressBook.sortNum('telephone',false));
-            localStorage.setItem('info',JSON.stringify(list));
+            addressBook.load().sort(addressBook.sortNum('telephone',false));
+            addressBook.save();
             creatTable();
             lc.className = 'desc';
         }
