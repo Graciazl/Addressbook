@@ -262,9 +262,4 @@ var addressBook = (function(){
             lc.className = 'desc';
         }
     });
-
-    $('#listView').addEventListener('click', function() {
-        return creatTable();
-    });
-
 }());
