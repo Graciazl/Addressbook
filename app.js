@@ -22,32 +22,6 @@ LocalStorageStore.prototype.save = function(data) {
 var list = JSON.parse(localStorage.getItem('info'));
 
 
-//highlight rows
-
-var rowIdx;
-
-function highLight() {
-    var table = document.getElementById("tableData");
-    var rows = table.getElementsByTagName("tr");
-    var selectedRow;
-
-    function SelectRow(row) {
-        if (selectedRow !== undefined) {
-            selectedRow.style.background = "#fbfbfb";
-        }
-        selectedRow = row;
-        selectedRow.style.background = "#44dee0";
-    }
-
-    for (var i = 0; i < rows.length; i++) {
-        (function (idx) {
-            addEvent(rows[idx], "click", function() {
-                SelectRow(rows[idx]);
-                rowIdx = idx;
-            });
-        })(i);
-    }
-}
 
 //delete row
 
@@ -250,5 +224,27 @@ var addressBook = (function(){
     $('#discard').addEventListener('click', function() {
         $('#inputTable').reset();
     });
+
+    var rowIdx;
+
+    function selectRow(row) {
+        if (var selectedRow !== undefined) {
+            selectedRow.style.background = "#fbfbfb";
+        }
+        selectedRow = row;
+        selectedRow.style.background = "#44dee0";
+    }
+
+    function highLight() {
+        var rows = $('#tableData').getElementsByTagName("tr");
+        for (var i = 0; i < rows.length; i++) {
+            (function (idx) {
+                rows[idx].addEventListener('click', function() {
+                    selectRow(rows[idx]);
+                    rowIdx = idx;
+                });
+            })(i);
+        }
+    }
 
 }());
