@@ -18,23 +18,6 @@ LocalStorageStore.prototype.save = function(data) {
 };
 
 
-
-var list = JSON.parse(localStorage.getItem('info'));
-
-
-
-//delete row
-
-var del = document.getElementById('del');
-addEvent(del,'click',delRow);
-
-function delRow() {
-    var table = document.getElementById("tableData");
-    table.deleteRow(rowIdx);
-    list.splice(rowIdx,1);
-    localStorage.setItem('info',JSON.stringify(list));
-}
-
 //event control
 
 function addEvent(element, evt, callback) {
@@ -67,6 +50,11 @@ var addressBook = (function(){
         add: function(contact) {
             contacts.push(contact);
         },
+
+        delete: function(row) {
+            contacts.splice(row,1);
+        },
+
         dynamicSort: function(property, asc) {
             if (asc) {
                 return function (a, b) {
@@ -226,9 +214,10 @@ var addressBook = (function(){
     });
 
     var rowIdx;
+    var selectedRow;
 
     function selectRow(row) {
-        if (var selectedRow !== undefined) {
+        if (selectedRow !== undefined) {
             selectedRow.style.background = "#fbfbfb";
         }
         selectedRow = row;
@@ -246,5 +235,11 @@ var addressBook = (function(){
             })(i);
         }
     }
+
+    $('#del').addEventListener('click', function() {
+        $('#tableData').deleteRow(rowIdx);
+        addressBook.delete(rowIdx);
+        addressBook.save();
+    });
 
 }());
