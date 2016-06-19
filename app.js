@@ -36,7 +36,7 @@ var addressBook = (function(){
             contacts.push(contact);
         },
 
-        delete: function(row) {
+        remove: function(row) {
             contacts.splice(row,1);
         },
 
@@ -221,7 +221,7 @@ var addressBook = (function(){
 
     $('#del').addEventListener('click', function() {
         $('#tableData').deleteRow(rowIdx);
-        addressBook.delete(rowIdx);
+        addressBook.remove(rowIdx);
         addressBook.save();
     });
 
