@@ -17,21 +17,6 @@ LocalStorageStore.prototype.save = function(data) {
     return localStorage.setItem('info',data);
 };
 
-
-//event control
-
-function addEvent(element, evt, callback) {
-    if (element.addEventListener) {
-        element.addEventListener(evt, callback, false);
-    } else if (element.attachEvent) {
-        element.attachEvent("on" + evt, callback);
-    } else {
-        element["on" + evt] = callback;
-    }
-}
-
-
-
 // model
 var addressBook = (function(){
     var storage = new LocalStorageStore(),
@@ -85,8 +70,6 @@ var addressBook = (function(){
     };
 
 }());
-
-
 
 // controller
 (function(){
