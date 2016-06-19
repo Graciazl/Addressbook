@@ -116,12 +116,12 @@ var addressBook = (function(){
         $('#theadLN').lastChild.className = 'sort';
         $('#theadTel').lastChild.className = 'sort';
         if (x) {
-            addressBook.load().sort(addressBook.dynamicSort('firstname',true));
+            addressBook.load().sort(addressBook.dynamicSort('firstName',true));
             addressBook.save();
             creatTable();
             lc.className = 'asc';
         } else {
-            addressBook.load().sort(addressBook.dynamicSort('firstname',false));
+            addressBook.load().sort(addressBook.dynamicSort('firstName',false));
             addressBook.save();
             creatTable();
             lc.className = 'desc';
@@ -134,12 +134,12 @@ var addressBook = (function(){
         $('#theadFN').lastChild.className = 'sort';
         $('#theadTel').lastChild.className = 'sort';
         if (x) {
-            addressBook.load().sort(addressBook.dynamicSort('lastname',true));
+            addressBook.load().sort(addressBook.dynamicSort('lastName',true));
             addressBook.save();
             creatTable();
             lc.className = 'asc';
         } else {
-            addressBook.load().sort(addressBook.dynamicSort('lastname',false));
+            addressBook.load().sort(addressBook.dynamicSort('lastName',false));
             addressBook.save();
             creatTable();
             lc.className = 'desc';
