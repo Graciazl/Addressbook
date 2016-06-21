@@ -29,7 +29,7 @@ var addressBook = (function(){
         },
 
         save: function() {
-            return storage.save(JSON.stringify(contacts));
+            storage.save(JSON.stringify(contacts));
         },
 
         add: function(contact) {
@@ -104,7 +104,10 @@ var addressBook = (function(){
             lastName: $('#lastname').value,
             telephone: $('#telephone').value
         };
-        addressBook.load();
+        var info = addressBook.load();
+        if (info !== null) {
+            addressBook.load();
+        }
         addressBook.add(contact);
         addressBook.save();
         alert('Your information has been added.');
