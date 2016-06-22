@@ -40,6 +40,10 @@ var addressBook = (function(){
             contacts.splice(row,1);
         },
 
+        getStorage: function() {
+            return storage.load();
+        },
+
         dynamicSort: function(property, asc) {
             if (asc) {
                 return function (a, b) {
@@ -104,8 +108,7 @@ var addressBook = (function(){
             lastName: $('#lastname').value,
             telephone: $('#telephone').value
         };
-        var info = addressBook.load();
-        if (info !== null) {
+        if (addressBook.getStorage() !== null) {
             addressBook.load();
         }
         addressBook.add(contact);
