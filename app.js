@@ -24,7 +24,7 @@ var addressBook = (function(){
 
     return {
         load: function() {
-            contacts = JSON.parse(storage.load());
+            contacts = JSON.parse(storage.load()) || [];
             return contacts;
         },
 
@@ -38,10 +38,6 @@ var addressBook = (function(){
 
         remove: function(row) {
             contacts.splice(row,1);
-        },
-
-        getStorage: function() {
-            return storage.load();
         },
 
         dynamicSort: function(property, asc) {
@@ -108,9 +104,7 @@ var addressBook = (function(){
             lastName: $('#lastname').value,
             telephone: $('#telephone').value
         };
-        if (addressBook.getStorage() !== null) {
-            addressBook.load();
-        }
+        addressBook.load();
         addressBook.add(contact);
         addressBook.save();
         alert('Your information has been added.');
